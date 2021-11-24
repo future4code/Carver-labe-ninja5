@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import logoLabeninjas from './imagemLogo/labeninjas.png'
+import logoLabeninjas from '../img/labeninjas.png'
 
 
 const DivBody = styled.div`
@@ -41,8 +41,6 @@ div{
 }
 
 `
-
-
 
 export class HomePage extends Component {
   render() {
