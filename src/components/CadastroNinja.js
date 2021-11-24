@@ -1,16 +1,139 @@
 import React, { Component } from 'react'
+import Axios from 'axios';
+import styled from 'styled-components';
+
+
+const FormContainer = styled.div`
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;   
+`
+
+const Button = styled.button`
+    width: 50%;
+    margin-top: 16px;
+`
+
+const paymentMethodsList = [
+  "Cartão de Crédito",
+  "Cartão de Débito",
+  "Pix",
+  "PayPal",
+  "Boleto"
+]
 
 export class CadastroNinja extends Component {
+  state = {
+    title: "",
+    description: "",
+    price: "",
+    paymentMethods: [],
+    dueDate: ""
+  };
+
+  onChangeTitle = (event) => {
+    this.setState({ title: event.target.value })
+  }
+
+  onChangeDescription = (event) => {
+    this.setState({ description: event.target.value })
+  }
+
+  onChangePrice = (event) => {
+    this.setState({ price: event.target.value })
+  }
+
+  onChangePaymentMethods = (event) => {
+    let value = Array.from(event.target.selectedOptions, option => option.value)
+        this.setState({ paymentMethods: value })
+  }
+
+  onChangeDueDate = (event) => {
+    this.setState({ dueDate: event.target.value })
+  }
+
+  crateJob = () => {
+    const body = {
+      title: this.state.title,
+      description: this.state.description,
+      price: Number(this.state.price),
+      paymentMethods: this.state.paymentMethods,
+      dueDate: this.state.dueDate
+    };
+    const baseUrl = "https://labeninjas.herokuapp.com";
+    const headers = {
+      headers: {
+        Authorization: "9a8a7b0c-9eba-4b46-9e82-f1ea4bf6f468"
+      }
+    }
+    Axios
+      .post(`${baseUrl}/jobs`, body, headers)
+      .then((res) => {
+        console.log(res)
+        alert(`O job ${this.state.title} foi criado com sucesso!`)
+        this.setState({
+          title: "",
+          description: "",
+          price: "",
+          paymentMethods: [],
+          dueDate: ""
+        });
+
+      })
+      .catch((erro) => {
+        console.log(erro.response)
+        alert(`Erro ao cadastrar o job: ${erro.response.data.message}`);
+      });
+  };
+
   render() {
     return (
-      <div>
-        <h3>Tela Cadastro do Serviço</h3>
-        <input/>
-        <input/>
-        <input/>
-        <input/>
-        <select/>
-      </div>
+      <FormContainer>
+        <h2>Quero ser um ninja!</h2>
+        <input
+          placeholder="Título*"
+          label="Serviço"
+          name="title"
+          value={this.state.title}
+          onChange={this.onChangeTitle}
+        />
+        <input
+          placeholder="Descrição*"
+          label="Descrição"
+          name="description"
+          value={this.state.description}
+          onChange={this.onChangeDescription}
+        />
+        <input
+          type="number"
+          label="Valor"
+          placeholder="Valor R$*"
+          name="price"
+          value={this.state.price}
+          onChange={this.onChangePrice}
+        />
+        <em>Formas De Pagamento:</em>
+        <select multiple value={this.state.paymentMethods} onChange={this.onChangePaymentMethods}>
+          <option>Cartão de Débito</option>
+          <option>Cartão de Crédito</option>
+          <option>PayPal</option>
+          <option>Boleto</option>
+          <option>Pix</option>
+        </select>
+        <em>Disponibilidade:</em>
+        <input
+          placeholder="Prazo do Job"
+          label="Prazo"
+          name="dueDate"
+          type="date"
+          value={this.state.dueDate}
+          onChange={this.onChangeDueDate}
+        />
+        <Button onClick={this.crateJob}>
+          Cadastrar
+        </Button>
+      </FormContainer>
     )
   }
 }
