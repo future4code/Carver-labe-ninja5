@@ -19,7 +19,7 @@ button{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -33,18 +33,28 @@ button:hover{
 
 }
 
+div{
+
+  border: 1px solid #acdaff;
+  background-color: #acdaff;
+
+}
+
 `
+
+
 
 export class HomePage extends Component {
   render() {
     return (
       <DivBody>
-        {/* <h3>Tela Inicial</h3> */}
-        <img src={logoLabeninjas}/>
-        <p>
-        <button>Quero ser um ninja</button>
-        <button>Quero encontrar um ninja</button>
-        </p>
+        <div>
+          <img src={logoLabeninjas} />
+          <p>
+            <button>Quero ser um ninja</button>
+            <button>Quero encontrar um ninja</button>
+          </p>
+        </div>
       </DivBody>
     )
   }
