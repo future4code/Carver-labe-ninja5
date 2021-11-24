@@ -49,8 +49,8 @@ export class HomePage extends Component {
         <div>
           <img src={logoLabeninjas} />
           <p>
-            <button>Quero ser um ninja</button>
-            <button>Quero encontrar um ninja</button>
+            <button onClick={() => this.props.mudarTela('cadastro')}>Quero ser um ninja</button>
+            <button onClick={() => this.props.mudarTela('serviços')}>Quero encontrar um ninja</button>
           </p>
         </div>
       </DivBody>
