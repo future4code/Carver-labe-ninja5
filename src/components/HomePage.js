@@ -3,40 +3,30 @@ import styled from 'styled-components'
 import logoLabeninjas from '../img/labeninjas.png'
 
 
-const DivBody = styled.div`
+const EstiloBody = styled.div`
 
 background-color: #eef491;
 display: flex;
 flex-direction: column;
 align-items: center;
+height: 80vh;
 
-button{
 
-  background-color: #a873e8;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-
+p{
+  display: flex;
+  justify-content: space-around;
 }
 
-button:hover{
-
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-
+button{
+  justify-content: center;
 }
 
 div{
 
-  border: 1px solid #acdaff;
+  border: solid #acdaff;
   background-color: #acdaff;
+  margin-top: 130px;
+  border-width: 50px 200px;
 
 }
 
@@ -45,7 +35,7 @@ div{
 export class HomePage extends Component {
   render() {
     return (
-      <DivBody>
+      <EstiloBody>
         <div>
           <img src={logoLabeninjas} />
           <p>
@@ -53,7 +43,7 @@ export class HomePage extends Component {
             <button onClick={() => this.props.mudarTela('serviços')}>Quero encontrar um ninja</button>
           </p>
         </div>
-      </DivBody>
+      </EstiloBody>
     )
   }
 }
