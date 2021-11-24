@@ -21,7 +21,6 @@ img{
   height: 65px;
 }
 
-
 `
 
 export class Footer extends Component {
