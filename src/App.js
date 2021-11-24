@@ -38,7 +38,7 @@ export default class App extends React.Component {
 		return (
 		<div>
 			<Header mudarTela={this.mudarTela}/>
-			{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da sua tela')}*/}
+			{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da tela')}*/}
 			{this.escolherTela()}
 			<Footer/>
 		</div>
