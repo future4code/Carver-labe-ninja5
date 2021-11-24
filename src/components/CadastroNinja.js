@@ -15,13 +15,13 @@ const Button = styled.button`
     margin-top: 16px;
 `
 
-const paymentMethodsList = [
-  "Cartão de Crédito",
-  "Cartão de Débito",
-  "Pix",
-  "PayPal",
-  "Boleto"
-]
+// const paymentMethodsList = [
+//   "Cartão de Crédito",
+//   "Cartão de Débito",
+//   "Pix",
+//   "PayPal",
+//   "Boleto"
+// ]
 
 export class CadastroNinja extends Component {
   state = {
@@ -70,7 +70,6 @@ export class CadastroNinja extends Component {
     Axios
       .post(`${baseUrl}/jobs`, body, headers)
       .then((res) => {
-        console.log(res)
         alert(`O job ${this.state.title} foi criado com sucesso!`)
         this.setState({
           title: "",
@@ -82,7 +81,6 @@ export class CadastroNinja extends Component {
 
       })
       .catch((erro) => {
-        console.log(erro.response)
         alert(`Erro ao cadastrar o job: ${erro.response.data.message}`);
       });
   };
