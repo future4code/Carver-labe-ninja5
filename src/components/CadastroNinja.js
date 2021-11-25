@@ -3,17 +3,35 @@ import Axios from 'axios';
 import styled from 'styled-components';
 
 
-const FormContainer = styled.div`
-    width: 300px;
+const CardContainer = styled.div`
+    background-color: #ACDAFF;
+    width: 400px;
     padding: 10px;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
+    color: #A873E8;
+     
+`
+const Form = styled.input`
+  border: none;
+  border: 2px solid;
+  border-color: #A873E8;
+  padding:5px;
+  margin: 10px 0;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
 `
 
 const Button = styled.button`
     width: 50%;
     margin-top: 16px;
+    justify-content: center;
 `
+
+
 
 // const paymentMethodsList = [
 //   "Cartão de Crédito",
@@ -46,7 +64,7 @@ export class CadastroNinja extends Component {
 
   onChangePaymentMethods = (event) => {
     let value = Array.from(event.target.selectedOptions, option => option.value)
-        this.setState({ paymentMethods: value })
+    this.setState({ paymentMethods: value })
   }
 
   onChangeDueDate = (event) => {
@@ -87,23 +105,23 @@ export class CadastroNinja extends Component {
 
   render() {
     return (
-      <FormContainer>
+      <CardContainer>
         <h2>Quero ser um ninja!</h2>
-        <input
+        <Form
           placeholder="Título*"
           label="Serviço"
           name="title"
           value={this.state.title}
           onChange={this.onChangeTitle}
         />
-        <input
+        <Form
           placeholder="Descrição*"
           label="Descrição"
           name="description"
           value={this.state.description}
           onChange={this.onChangeDescription}
         />
-        <input
+        <Form
           type="number"
           label="Valor"
           placeholder="Valor R$*"
@@ -112,7 +130,7 @@ export class CadastroNinja extends Component {
           onChange={this.onChangePrice}
         />
         <em>Formas De Pagamento:</em>
-        <select multiple value={this.state.paymentMethods} onChange={this.onChangePaymentMethods}>
+        <select multiple={true} type="file" value={this.state.paymentMethods} onChange={this.onChangePaymentMethods}>
           <option>Cartão de Débito</option>
           <option>Cartão de Crédito</option>
           <option>PayPal</option>
@@ -120,7 +138,7 @@ export class CadastroNinja extends Component {
           <option>Pix</option>
         </select>
         <em>Disponibilidade:</em>
-        <input
+        <Form
           placeholder="Prazo do Job"
           label="Prazo"
           name="dueDate"
@@ -131,7 +149,7 @@ export class CadastroNinja extends Component {
         <Button onClick={this.crateJob}>
           Cadastrar
         </Button>
-      </FormContainer>
+      </CardContainer>
     )
   }
 }
