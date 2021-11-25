@@ -35,10 +35,9 @@ const Form = styled.input`
 
 const Button = styled.button`
     width: 50%;
-    margin-top: 16px;
     justify-content: center;
     display: flex;
-    margin-left: 5vw;
+    margin: 0 auto;
 `
 
 
