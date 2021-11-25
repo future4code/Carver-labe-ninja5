@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
+
 
 export class ItemDoCarrinho extends Component {
   render() {
@@ -12,3 +14,5 @@ export class ItemDoCarrinho extends Component {
     )
   }
 }
+
+{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da tela')}*/}
