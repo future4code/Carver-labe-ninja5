@@ -14,7 +14,7 @@ export class DetalheServiço extends Component {
 
 
   getJobById = () => {
-    const id = this.props.id
+    const id = this.props.jobId
     const url = `https://labeninjas.herokuapp.com/jobs/${id}`
     axios.get(url, {
       headers: {
