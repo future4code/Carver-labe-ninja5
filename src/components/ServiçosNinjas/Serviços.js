@@ -1,12 +1,33 @@
 import React, { Component } from 'react'
 import { CardServiços } from './CardServiços'
+import styled from 'styled-components'
+
+const ServiçosBody = styled.div`
+background-color: #eef491;
+height: 80vh;
+`
+const FiltroContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+input, select{
+  margin: 30px;
+  width: 300px;
+}
+`
+const CardsContainer = styled.div`
+display: grid;
+grid-template-columns: repeat(4, 300px);
+gap: 10px;
+margin: 30px;
+`
 
 export class Serviços extends Component {
   state = {
     valorMinimo: "",
     valorMaximo: "",
-    buscaProduto: "",
-    ordem: ""
+    busca: "",
+    ordem: "",
+    listaDeServiços: []
   }
 
   atualizaValorMinimo = (event) => {
@@ -23,35 +44,51 @@ export class Serviços extends Component {
     this.setState({ ordem: event.target.value })
   }
 
-
   render() {
+
     return (
 
-      <div>
+      <ServiçosBody>
+
+        <FiltroContainer>
         <input
-          placeholder='Valor Min'
-        // value={}
-        // onChange={}
+        placeholder='Valor Mínimo'
+        value={this.state.valorMinimo}
+        onChange={this.atualizaValorMinimo}
         />
         <input
-          placeholder='Valor Max'
-        // value={}
-        // onChange={}
+        placeholder='Valor Máximo'
+        value={this.state.valorMaximo}
+        onChange={this.atualizaValorMaximo}
         />
         <input
-          placeholder='Busca por serviço ou descrição'
-        // value={}
-        // onChange={}
+        placeholder='Busca por título ou descrição'
+        value={this.state.busca}
+        onChange={this.atualizaBusca}
         />
         <select>
           <option> Sem ordenação </option>
-          <option> Valor Mínimo </option>
-          <option> Valor Máximo </option>
+          <option> Menor Valor </option>
+          <option> Maior Valor </option>
           <option> Título </option>
           <option> Prazo </option>
         </select>
+
+        </FiltroContainer>
+        <CardsContainer>
+        {this.state.listaDeServiços
+        .filter(job => {
+          return job.title.toLowerCase().includes(this.state.busca.toLowerCase())
+        })
+        .filter(job => {
+          return this.state.valorMinimo === "" || job.price >= this.state.valorMinimo
+        })
+        .filter(job => {
+          return this.state.valorMaximo === "" || job.price <= this.state.valorMaximo
+        })}
         <CardServiços />
-      </div>
+        </CardsContainer>
+      </ServiçosBody>
     )
   }
 }
