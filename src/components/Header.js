@@ -15,15 +15,15 @@ img{
 }
 button{
 background-color: #acdaff;
+border-radius: 20px;
 border: none;
 color: #494949;
 padding: 7px;
 text-align: center;
 text-decoration: none;
-display: inline-block;
 font-size: 15px;
 cursor: pointer;
--webkit-transition-duration: 0.4s; /* Safari */
+-webkit-transition-duration: 0.4s;
 transition-duration: 0.4s;
 }
 button:hover{
