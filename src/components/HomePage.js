@@ -12,13 +12,10 @@ align-items: center;
 height: 80vh;
 
 
+
 p{
   display: flex;
   justify-content: space-around;
-}
-
-button{
-  justify-content: center;
 }
 
 div{
