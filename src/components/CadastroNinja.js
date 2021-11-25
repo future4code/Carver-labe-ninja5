@@ -34,10 +34,9 @@ border-color: #A873E8;
 padding:5px;
 margin: 10px 0;
 border-radius: 20px;
-height: 40px;
-font-size: 20px;
+height: 20px;
+font-size: 15px;
 font-family: Georgia, 'Times New Roman', Times, serif;
-  
 `
 
 const Button = styled.button`
@@ -45,6 +44,20 @@ width: 50%;
 justify-content: center;
 display: flex;
 margin: 0 auto;
+background-color: #A873E8;
+border-radius: 20px;
+border: none;
+color: white;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+font-size: 12px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+button:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 `
 
 
