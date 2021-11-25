@@ -10,6 +10,14 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column; 
     color: #A873E8;
+    margin-top: 5vh;
+    margin-left: 40vw;
+    border-width: 2vw 10vw;
+  
+  h2{
+    display: flex;
+    justify-content: center;
+  }
      
 `
 const Form = styled.input`
@@ -29,6 +37,8 @@ const Button = styled.button`
     width: 50%;
     margin-top: 16px;
     justify-content: center;
+    display: flex;
+    margin-left: 5vw;
 `
 
 
