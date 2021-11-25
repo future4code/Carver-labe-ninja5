@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import axios from 'axios'
 export class DetalheServiço extends Component {
+
+  
+
   render() {
+    
     return (
       <div>
         <h3>Tela Detalhes do Serviço</h3>
