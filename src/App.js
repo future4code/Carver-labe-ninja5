@@ -10,7 +10,7 @@ import { ListaServiços } from './components/ServiçosNinjas/ListaServiços'
 export default class App extends React.Component {
 
 	state = {
-		telaAtual: 'inicial',
+		telaAtual: '',
 		jobIdDetalhe: ''
 	}
 
@@ -19,7 +19,7 @@ export default class App extends React.Component {
 	}
 
 	irPraTelaDetalhes = (jobId) => {
-		this.setState({telaAtual: 'detalhe', jobIdDetalhe: jobId})
+		this.setState({telaAtual: 'detalhes', jobIdDetalhe: jobId})
 	}
 
 	escolherTela = () => {
