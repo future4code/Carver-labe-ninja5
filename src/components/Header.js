@@ -12,6 +12,22 @@ height: 80px;
 img{
   width: 80px;
 }
+button{
+background-color: #acdaff;
+border: none;
+color: #494949;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 15px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+}
+button:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 ` 
 const HeaderBotao = styled.div`
 display: flex;
