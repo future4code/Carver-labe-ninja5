@@ -10,6 +10,7 @@ padding: 10px;
 align-items: center;
 height: 80px;
 img{
+  margin-left: 50px;
   width: 80px;
 }
 button{
@@ -34,6 +35,7 @@ display: flex;
 justify-content: space-around;
 width: 200px;
 background-color: #A873E8;
+margin-right: 50px;
 `
 export class Header extends Component {
   render() {
