@@ -5,21 +5,22 @@ import axios from 'axios'
 
 const ServiçosBody = styled.div`
 background-color: #eef491;
-height: 80vh;
+height: 100vh;
 `
 const FiltroContainer = styled.div`
 display: flex;
-justify-content: space-evenly;
+justify-content: space-around;
 input, select{
-  margin: 30px;
-  width: 300px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 305px;
 }
 `
 const CardsContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(4, 300px);
-gap: 10px;
-margin: 30px;
+grid-template-columns: repeat(4, 1fr);
+margin: 10px;
 `
 
 export class ListaServiços extends Component {
@@ -42,13 +43,12 @@ export class ListaServiços extends Component {
     this.setState({ valorMaximo: event.target.value })
   }
   atualizaBusca = (event) => {
-    this.setState({ buscaProduto: event.target.value })
+    this.setState({ busca: event.target.value })
 
   }
   atualizaOrdem = (event) => {
     this.setState({ ordem: event.target.value })
   }
-
 
   getAllJobs = () => {
     const url = "https://labeninjas.herokuapp.com/jobs"
@@ -70,26 +70,30 @@ export class ListaServiços extends Component {
 
     return (
       
-
       <ServiçosBody>
-
         <FiltroContainer>
         <input
+        type="number"
         placeholder='Valor Mínimo'
         value={this.state.valorMinimo}
         onChange={this.atualizaValorMinimo}
         />
         <input
+        type="number"
         placeholder='Valor Máximo'
         value={this.state.valorMaximo}
         onChange={this.atualizaValorMaximo}
         />
         <input
+        type="text"
         placeholder='Busca por título ou descrição'
         value={this.state.busca}
         onChange={this.atualizaBusca}
         />
-        <select>
+        <select
+        name="sort"
+        value={this.state.ordem}
+        onChange={this.atualizaOrdem}>
           <option> Sem ordenação </option>
           <option> Menor Valor </option>
           <option> Maior Valor </option>
@@ -99,20 +103,33 @@ export class ListaServiços extends Component {
 
         </FiltroContainer>
         <CardsContainer>
-        {this.state.jobs.map((job) => {
-          return <CardServiços job={job}/>})}
-        
-        {/* .filter(job => {
-          return job.title.toLowerCase().includes(this.state.busca.toLowerCase())
+        {this.state.jobs
+        .filter((job)=>{
+          return job.title.toLowerCase().includes(this.state.busca.toLowerCase()) || 
+        job.description.toLowerCase().includes(this.state.busca.toLowerCase())
         })
-        .filter(job => {
+        .filter((job)=>{
           return this.state.valorMinimo === "" || job.price >= this.state.valorMinimo
         })
         .filter(job => {
           return this.state.valorMaximo === "" || job.price <= this.state.valorMaximo
         })
-      } */}
-
+        .sort((a, b) => {
+          switch (this.state.ordem){
+            case "Menor Valor":
+              return a.price - b.price
+            case "Maior Valor":
+              return b.price - a.price
+            case "Título":
+              return a.title.localeCompare(b.title)
+            case "Prazo":
+              return a.dueDate.localeCompare(b.dueDate)
+          }
+        })
+        .map((job) => {
+          return <CardServiços key={job.id} job={job} />
+        })
+      }
         </CardsContainer>
       </ServiçosBody>
     )

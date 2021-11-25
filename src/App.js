@@ -10,7 +10,16 @@ import { ListaServiços } from './components/ServiçosNinjas/ListaServiços'
 export default class App extends React.Component {
 
 	state = {
-		telaAtual: 'inicial'
+		telaAtual: 'inicial',
+		jobIdDetalhe: ''
+	}
+
+	mudarTela = (nomeTela) => {
+		this.setState({telaAtual: nomeTela });
+	}
+
+	irPraTelaDetalhes = (jobId) => {
+		this.setState({telaAtual: 'detalhe', jobIdDetalhe: jobId})
 	}
 
 	escolherTela = () => {
@@ -20,18 +29,14 @@ export default class App extends React.Component {
 			case 'cadastro':
 				return <CadastroNinja mudarTela={this.mudarTela}/>
 			case 'serviços':
-				return <ListaServiços mudarTela={this.mudarTela}/>
+				return <ListaServiços irPraTelaDetalhes={this.irPraTelaDetalhes}/>
 			case 'detalhes':
-				return <DetalheServiço mudarTela={this.mudarTela}/>
+				return <DetalheServiço jobId={this.state.jobIdDetalhe} mudarTela={this.mudarTela}/>
 			case 'carrinho':
 				return <Carrinho mudarTela={this.mudarTela}/>
 			default:
 				return <HomePage mudarTela={this.mudarTela}/>
 		}
-	}
-
-	mudarTela = (nomeTela) => {
-		this.setState({telaAtual: nomeTela });
 	}
 
 	render() {
