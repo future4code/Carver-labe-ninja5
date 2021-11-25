@@ -23,7 +23,7 @@ div{
   border: solid #acdaff;
   background-color: #acdaff;
   margin-top: 5vh;
-  border-width: 2vw 10vw;
+  border-width: 2vw 5vw;
 
 }
 
