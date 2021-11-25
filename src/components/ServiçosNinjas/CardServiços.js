@@ -14,5 +14,4 @@ export class CardServiços extends Component {
           <button>Adicionar ao carrinho</button>
         </div>
       )}
-
 }
