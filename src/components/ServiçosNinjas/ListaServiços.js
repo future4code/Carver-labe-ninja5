@@ -5,21 +5,26 @@ import axios from 'axios'
 
 const ServiçosBody = styled.div`
 background-color: #eef491;
-height: 80vh;
+height: 100vh;
 `
 const FiltroContainer = styled.div`
 display: flex;
 justify-content: space-around;
 input, select{
-  margin: 30px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
   width: 300px;
 }
 `
 const CardsContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(4, 300px);
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(3, 1fr);
 gap: 10px;
-margin: 30px;
+margin: 20px;
+padding: 10px;
+border: 1px solid black;
 `
 
 export class ListaServiços extends Component {
@@ -48,7 +53,6 @@ export class ListaServiços extends Component {
   atualizaOrdem = (event) => {
     this.setState({ ordem: event.target.value })
   }
-
 
   getAllJobs = () => {
     const url = "https://labeninjas.herokuapp.com/jobs"
