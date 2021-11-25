@@ -131,7 +131,7 @@ export class ListaServiços extends Component {
           }
         })
         .map((job) => {
-          return <CardServiços key={job.id} job={job}/>
+          return <CardServiços key={job.id} job={job} />
         })
       }
         </CardsContainer>
