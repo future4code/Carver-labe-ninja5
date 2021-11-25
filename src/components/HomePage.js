@@ -25,8 +25,8 @@ div{
 
   border: solid #acdaff;
   background-color: #acdaff;
-  margin-top: 130px;
-  border-width: 50px 200px;
+  margin-top: 5vh;
+  border-width: 2vw 10vw;
 
 }
 
