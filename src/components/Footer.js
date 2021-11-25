@@ -26,11 +26,10 @@ img{
 export class Footer extends Component {
   render() {
     return (
-      <EstiloFooter>
-        <a href='https://www.facebook.com' target="_blank"><img src={logoFacebook} alt='Logo do Facebook'/></a>
-        <a href='https://www.twitter.com' target="_blank"><img src={logoTwitter} alt='Logo do Twitter'/></a>
-        <a href='https://www.instagram.com' target="_blank"><img src={logoInstagram} alt='Logo do Instagram' /></a>
-      </EstiloFooter>
+      <div>
+        footer
+      </div>
+
     )
   }
 }
