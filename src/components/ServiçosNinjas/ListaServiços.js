@@ -14,17 +14,13 @@ input, select{
   margin-top: 30px;
   margin-left: 20px;
   margin-right: 20px;
-  width: 300px;
+  width: 305px;
 }
 `
 const CardsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(3, 1fr);
-gap: 10px;
-margin: 20px;
-padding: 10px;
-border: 1px solid black;
+margin: 10px;
 `
 
 export class ListaServiços extends Component {
@@ -131,7 +127,7 @@ export class ListaServiços extends Component {
           }
         })
         .map((job) => {
-          return <CardServiços key={job.id} job={job}/>
+          return <CardServiços key={job.id} job={job} />
         })
       }
         </CardsContainer>
