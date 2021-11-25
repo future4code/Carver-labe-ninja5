@@ -13,8 +13,10 @@ grid-template-columns: repeat(4, 1fr);
 color: #494949;
 input, select{
   margin-top: 30px;
+
   margin-left: 60px;
   width: 200px;
+
 }
 `
 const CardsContainer = styled.div`
@@ -128,6 +130,7 @@ export class ListaServiços extends Component {
         })
         .map((job) => {
           return <CardServiços key={job.id} job={job} irPraTelaDetalhes={this.props.irPraTelaDetalhes} />
+
         })
       }
         </CardsContainer>

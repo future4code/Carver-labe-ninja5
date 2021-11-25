@@ -10,7 +10,9 @@ import { ListaServiços } from './components/ServiçosNinjas/ListaServiços'
 export default class App extends React.Component {
 
 	state = {
+
 		telaAtual: '',
+
 		jobIdDetalhe: ''
 	}
 
@@ -19,6 +21,7 @@ export default class App extends React.Component {
 	}
 
 	irPraTelaDetalhes = (jobId) => {
+
 		this.setState({telaAtual: 'detalhes', jobIdDetalhe: jobId})
 	}
 

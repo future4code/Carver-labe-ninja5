@@ -6,27 +6,29 @@ const CadastroBody = styled.div`
 
 background-color: #eef491;
 height: 80vh;
-
+display: flex;
+flex-direction: column;
+justify-content: center;
 `
 const CardContainer = styled.div`
 background-color: #ACDAFF;
 width: 400px;
-/* padding: 10px; */
 display: flex;
 flex-direction: column; 
 color: #A873E8;
+margin: 0 auto;
+border: solid #acdaff;
+border-width: 1vw ;
 
-margin-left: 40vw;
-border-width: 2vw 10vw;
   
-  h2{
-    display: flex;
-    justify-content: center;
-  }
+h2{
+  display: flex;
+  justify-content: center;
+}
      
 `
 const Form = styled.input`
-border: none;
+/* border: none; */
 border: 2px solid;
 border-color: #A873E8;
 padding:5px;
