@@ -9,7 +9,7 @@ import logoInstagram from '../img/logoInstagram.png'
 const EstiloFooter = styled.div`
 
 background-color: #a873e8;
-height: 89px;
+height: 6.1vh;
 position: relative;
 bottom: 0;
 display: flex;
@@ -26,9 +26,9 @@ img{
 export class Footer extends Component {
   render() {
     return (
-      <div>
+      <EstiloFooter>
         footer
-      </div>
+      </EstiloFooter>
 
     )
   }
