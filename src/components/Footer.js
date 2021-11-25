@@ -14,9 +14,9 @@ bottom: 0;
 export class Footer extends Component {
   render() {
     return (
-      <EstiloFooter>
-        
-      </EstiloFooter>
+      <div>
+        footer
+      </div>
     )
   }
 }
