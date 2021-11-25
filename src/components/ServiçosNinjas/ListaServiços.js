@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CardServiços } from './CardServiços'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const ServiçosBody = styled.div`
 background-color: #eef491;
@@ -21,13 +22,17 @@ gap: 10px;
 margin: 30px;
 `
 
-export class Serviços extends Component {
+export class ListaServiços extends Component {
   state = {
     valorMinimo: "",
     valorMaximo: "",
     busca: "",
     ordem: "",
-    listaDeServiços: []
+    jobs: []
+  }
+    
+  componentDidMount(){
+    this.getAllJobs()
   }
 
   atualizaValorMinimo = (event) => {
@@ -44,9 +49,27 @@ export class Serviços extends Component {
     this.setState({ ordem: event.target.value })
   }
 
+
+  getAllJobs = () => {
+    const url = "https://labeninjas.herokuapp.com/jobs"
+    axios.get(url, {
+      headers: {
+        Authorization: "9a8a7b0c-9eba-4b46-9e82-f1ea4bf6f468"
+      }
+    })
+    .then((res) => {
+      console.log(res)
+      this.setState({jobs: res.data.jobs})
+    })
+    .catch((err) => {
+      alert(`Algo errado não está certo: \n${err.response.data.message} ` )
+    })
+  }
+
   render() {
 
     return (
+      
 
       <ServiçosBody>
 
@@ -76,8 +99,10 @@ export class Serviços extends Component {
 
         </FiltroContainer>
         <CardsContainer>
-        {this.state.listaDeServiços
-        .filter(job => {
+        {this.state.jobs.map((job) => {
+          return <CardServiços job={job}/>})}
+        
+        {/* .filter(job => {
           return job.title.toLowerCase().includes(this.state.busca.toLowerCase())
         })
         .filter(job => {
@@ -85,8 +110,9 @@ export class Serviços extends Component {
         })
         .filter(job => {
           return this.state.valorMaximo === "" || job.price <= this.state.valorMaximo
-        })}
-        <CardServiços />
+        })
+      } */}
+
         </CardsContainer>
       </ServiçosBody>
     )

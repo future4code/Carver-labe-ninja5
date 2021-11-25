@@ -5,7 +5,7 @@ import { DetalheServiço } from './components/DetalheServiço'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { HomePage } from './components/HomePage'
-import { Serviços } from './components/ServiçosNinjas/Serviços'
+import { ListaServiços } from './components/ServiçosNinjas/ListaServiços'
 
 export default class App extends React.Component {
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 			case 'cadastro':
 				return <CadastroNinja mudarTela={this.mudarTela}/>
 			case 'serviços':
-				return <Serviços mudarTela={this.mudarTela}/>
+				return <ListaServiços mudarTela={this.mudarTela}/>
 			case 'detalhes':
 				return <DetalheServiço mudarTela={this.mudarTela}/>
 			case 'carrinho':
