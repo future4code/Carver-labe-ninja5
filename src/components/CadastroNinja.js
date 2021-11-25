@@ -2,17 +2,22 @@ import React, { Component } from 'react'
 import Axios from 'axios';
 import styled from 'styled-components';
 
+const CadastroBody = styled.div`
 
+background-color: #eef491;
+height: 80vh;
+
+`
 const CardContainer = styled.div`
-    background-color: #ACDAFF;
-    width: 400px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column; 
-    color: #A873E8;
-    margin-top: 5vh;
-    margin-left: 40vw;
-    border-width: 2vw 10vw;
+background-color: #ACDAFF;
+width: 400px;
+/* padding: 10px; */
+display: flex;
+flex-direction: column; 
+color: #A873E8;
+
+margin-left: 40vw;
+border-width: 2vw 10vw;
   
   h2{
     display: flex;
@@ -21,23 +26,23 @@ const CardContainer = styled.div`
      
 `
 const Form = styled.input`
-  border: none;
-  border: 2px solid;
-  border-color: #A873E8;
-  padding:5px;
-  margin: 10px 0;
-  border-radius: 20px;
-  height: 40px;
-  font-size: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+border: none;
+border: 2px solid;
+border-color: #A873E8;
+padding:5px;
+margin: 10px 0;
+border-radius: 20px;
+height: 40px;
+font-size: 20px;
+font-family: Georgia, 'Times New Roman', Times, serif;
   
 `
 
 const Button = styled.button`
-    width: 50%;
-    justify-content: center;
-    display: flex;
-    margin: 0 auto;
+width: 50%;
+justify-content: center;
+display: flex;
+margin: 0 auto;
 `
 
 
@@ -114,51 +119,53 @@ export class CadastroNinja extends Component {
 
   render() {
     return (
-      <CardContainer>
-        <h2>Quero ser um ninja!</h2>
-        <Form
-          placeholder="Título*"
-          label="Serviço"
-          name="title"
-          value={this.state.title}
-          onChange={this.onChangeTitle}
-        />
-        <Form
-          placeholder="Descrição*"
-          label="Descrição"
-          name="description"
-          value={this.state.description}
-          onChange={this.onChangeDescription}
-        />
-        <Form
-          type="number"
-          label="Valor"
-          placeholder="Valor R$*"
-          name="price"
-          value={this.state.price}
-          onChange={this.onChangePrice}
-        />
-        <em>Formas De Pagamento:</em>
-        <select multiple={true} type="file" value={this.state.paymentMethods} onChange={this.onChangePaymentMethods}>
-          <option>Cartão de Débito</option>
-          <option>Cartão de Crédito</option>
-          <option>PayPal</option>
-          <option>Boleto</option>
-          <option>Pix</option>
-        </select>
-        <em>Disponibilidade:</em>
-        <Form
-          placeholder="Prazo do Job"
-          label="Prazo"
-          name="dueDate"
-          type="date"
-          value={this.state.dueDate}
-          onChange={this.onChangeDueDate}
-        />
-        <Button onClick={this.crateJob}>
-          Cadastrar
-        </Button>
-      </CardContainer>
+      <CadastroBody>
+        <CardContainer>
+          <h2>Quero ser um ninja!</h2>
+          <Form
+            placeholder="Título*"
+            label="Serviço"
+            name="title"
+            value={this.state.title}
+            onChange={this.onChangeTitle}
+          />
+          <Form
+            placeholder="Descrição*"
+            label="Descrição"
+            name="description"
+            value={this.state.description}
+            onChange={this.onChangeDescription}
+          />
+          <Form
+            type="number"
+            label="Valor"
+            placeholder="Valor R$*"
+            name="price"
+            value={this.state.price}
+            onChange={this.onChangePrice}
+          />
+          <em>Formas De Pagamento:</em>
+          <select multiple={true} type="file" value={this.state.paymentMethods} onChange={this.onChangePaymentMethods}>
+            <option>Cartão de Débito</option>
+            <option>Cartão de Crédito</option>
+            <option>PayPal</option>
+            <option>Boleto</option>
+            <option>Pix</option>
+          </select>
+          <em>Disponibilidade:</em>
+          <Form
+            placeholder="Prazo do Job"
+            label="Prazo"
+            name="dueDate"
+            type="date"
+            value={this.state.dueDate}
+            onChange={this.onChangeDueDate}
+          />
+          <Button onClick={this.crateJob}>
+            Cadastrar
+          </Button>
+        </CardContainer>
+      </CadastroBody>
     )
   }
 }
