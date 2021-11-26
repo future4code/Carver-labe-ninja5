@@ -43,7 +43,7 @@ export class ItemDoCarrinho extends Component {
       <CardItemCarrinho> 
         <p>Item: {this.props.title}</p>
         <p>Preço: {this.props.price}</p>
-        <button onClick={() => this.props.removerCarrinho}>Remover</button>
+        <button onClick={() => this.props.removerDoCarrinho(this.props.id)}>Remover</button>
       </CardItemCarrinho>
     )
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { CadastroNinja } from './components/CadastroNinja'
 import { Carrinho } from './components/Carrinho/Carrinho'
+import { ItemDoCarrinho } from './components/Carrinho/ItemDoCarrinho'
 import { DetalheServiço } from './components/DetalheServiço'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -17,48 +18,60 @@ export default class App extends React.Component {
 	}
 
 	mudarTela = (nomeTela) => {
-		this.setState({telaAtual: nomeTela });
+		this.setState({ telaAtual: nomeTela });
 	}
 
 	irPraTelaDetalhes = (jobId) => {
 
-		this.setState({telaAtual: 'detalhes', jobIdDetalhe: jobId})
+		this.setState({ telaAtual: 'detalhes', jobIdDetalhe: jobId })
 	}
 
 	adicionarAoCarrinho = (job) => {
 		const novoCarrinho = [...this.state.carrinho, job]
-		this.setState({carrinho: novoCarrinho})
+		this.setState({ carrinho: novoCarrinho })
 		alert(`O Serviço Ninja ${job.title} foi adicionado ao seu carrinho!`)
+	}
+
+	limparCarrinho = () => {
+		this.setState({ carrinho: [] })
+		alert("Obrigada por comprar com a gente!")
+	}
+
+	removerDoCarrinho = (id) => {
+		const itemRemovido = this.state.carrinho.filter((itemDoCarrinho) => {
+			return itemDoCarrinho.id !== id
+		})
+		this.setState({ carrinho: itemRemovido })
 	}
 
 
 	escolherTela = () => {
 		switch (this.state.telaAtual) {
 			case 'inicial':
-				return <HomePage mudarTela={this.mudarTela}/>
+				return <HomePage mudarTela={this.mudarTela} />
 			case 'cadastro':
-				return <CadastroNinja mudarTela={this.mudarTela}/>
+				return <CadastroNinja mudarTela={this.mudarTela} />
 			case 'serviços':
-				return <ListaServiços adicionarAoCarrinho={this.adicionarAoCarrinho} irPraTelaDetalhes={this.irPraTelaDetalhes}/>
+				return <ListaServiços adicionarAoCarrinho={this.adicionarAoCarrinho} irPraTelaDetalhes={this.irPraTelaDetalhes} />
 			case 'detalhes':
-				return <DetalheServiço jobId={this.state.jobIdDetalhe} adicionarAoCarrinho={this.adicionarAoCarrinho} mudarTela={this.mudarTela}/>
+				return <DetalheServiço jobId={this.state.jobIdDetalhe} adicionarAoCarrinho={this.adicionarAoCarrinho} mudarTela={this.mudarTela} />
 			case 'carrinho':
-				return <Carrinho mudarTela={this.mudarTela}/>
+				return <Carrinho mudarTela={this.mudarTela} carrinho={this.state.carrinho} limparCarrinho={this.limparCarrinho} removerDoCarrinho={this.removerDoCarrinho} />
 			default:
-				return <HomePage mudarTela={this.mudarTela}/>
+				return <HomePage mudarTela={this.mudarTela} />
 		}
 	}
 
 	render() {
 		return (
-		<div>
-			<Header mudarTela={this.mudarTela}/>
-			{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da tela')}*/}
-			{this.escolherTela()}
-			<Footer/>
-		</div>
+			<div>
+				<Header mudarTela={this.mudarTela} />
+				{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da tela')}*/}
+				{this.escolherTela()}
+				<Footer />
+			</div>
 		)
-        
+
 	}
 }
 
