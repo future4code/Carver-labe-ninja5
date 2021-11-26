@@ -20,6 +20,7 @@ div{
 
   border: solid #acdaff;
   background-color: #acdaff;
+  border-radius: 15px;
   margin-top: 5vh;
   border-width: 2vw 5vw;
 

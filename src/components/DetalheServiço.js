@@ -1,6 +1,41 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { converterData } from './converterData';
+import styled from 'styled-components'
+
+const DetalhesDoJob = styled.div`
+background-color: #ACDAFF;
+border-radius: 15px;
+width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center ;
+color: #494949;
+margin: 50px auto;
+border: solid #acdaff;
+border-width: 1vw ;`
+
+const Botoes = styled.div`
+display: flex;
+justify-content: space-around;
+width: 400px;
+margin: 10px;
+button{
+background-color: #A873E8;
+border-radius: 20px;
+border: none;
+color: white;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+font-size: 12px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+button:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}`
 
 export class DetalheServiço extends Component {
   state = {
@@ -39,16 +74,18 @@ export class DetalheServiço extends Component {
         return <li key={pay}>{pay}</li>
     })
       return(
-        <div>
+        <DetalhesDoJob>
           {this.state.job.title &&<h2>{this.state.job.title}</h2>}       
           {this.state.job.description &&<p>{this.state.job.description}</p>}
           {this.state.job.price && <p>Valor: R${this.state.job.price.toFixed(2)}</p>}
           {this.state.job.dueDate && <p>Prazo: {converterData(this.state.job.dueDate)}</p>}
           <p>Formas de Pagamento Aceitas:</p>
           {pagamento}
+          <Botoes>
           <button onClick={() => this.props.mudarTela('serviços')}>Voltar pra lista</button>
           <button>Adicionar no carrinho</button>
-        </div>
+          </Botoes>
+        </DetalhesDoJob>
       )
     }
    
