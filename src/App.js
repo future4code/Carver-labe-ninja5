@@ -12,7 +12,8 @@ export default class App extends React.Component {
 	state = {
 
 		telaAtual: '',
-		jobIdDetalhe: ''
+		jobIdDetalhe: '',
+		carrinho: []
 	}
 
 	mudarTela = (nomeTela) => {
@@ -24,6 +25,13 @@ export default class App extends React.Component {
 		this.setState({telaAtual: 'detalhes', jobIdDetalhe: jobId})
 	}
 
+	adicionarAoCarrinho = (job) => {
+		const novoCarrinho = [...this.state.carrinho, job]
+		this.setState({carrinho: novoCarrinho})
+		alert(`O Serviço Ninja ${job.title} foi adicionado ao seu carrinho!`)
+	}
+
+
 	escolherTela = () => {
 		switch (this.state.telaAtual) {
 			case 'inicial':
@@ -31,9 +39,9 @@ export default class App extends React.Component {
 			case 'cadastro':
 				return <CadastroNinja mudarTela={this.mudarTela}/>
 			case 'serviços':
-				return <ListaServiços irPraTelaDetalhes={this.irPraTelaDetalhes}/>
+				return <ListaServiços adicionarAoCarrinho={this.adicionarAoCarrinho} irPraTelaDetalhes={this.irPraTelaDetalhes}/>
 			case 'detalhes':
-				return <DetalheServiço jobId={this.state.jobIdDetalhe} mudarTela={this.mudarTela}/>
+				return <DetalheServiço jobId={this.state.jobIdDetalhe} adicionarAoCarrinho={this.adicionarAoCarrinho} mudarTela={this.mudarTela}/>
 			case 'carrinho':
 				return <Carrinho mudarTela={this.mudarTela}/>
 			default:
