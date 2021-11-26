@@ -9,11 +9,13 @@ justify-content: space-between;
 padding: 10px;
 align-items: center;
 height: 80px;
+font-family: Georgia, 'Times New Roman', Times, serif;
 img{
   margin-left: 50px;
   width: 80px;
 }
 button{
+font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #acdaff;
 border-radius: 20px;
 border: none;

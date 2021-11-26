@@ -2,16 +2,9 @@ import React, { Component } from 'react'
 import Axios from 'axios';
 import styled from 'styled-components';
 
-const CadastroBody = styled.div`
-
-background-color: #eef491;
-height: 80vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-`
 const CardContainer = styled.div`
 background-color: #ACDAFF;
+border-radius: 15px;
 width: 400px;
 display: flex;
 flex-direction: column; 
@@ -19,7 +12,6 @@ color: #A873E8;
 margin: 0 auto;
 border: solid #acdaff;
 border-width: 1vw ;
-
   
 h2{
   display: flex;
@@ -28,7 +20,6 @@ h2{
      
 `
 const Form = styled.input`
-/* border: none; */
 border: 2px solid;
 border-color: #A873E8;
 padding:5px;
@@ -40,6 +31,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 `
 
 const Button = styled.button`
+font-family: Georgia, 'Times New Roman', Times, serif;
 width: 50%;
 justify-content: center;
 display: flex;
@@ -59,16 +51,6 @@ button:hover{
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 `
-
-
-
-// const paymentMethodsList = [
-//   "Cartão de Crédito",
-//   "Cartão de Débito",
-//   "Pix",
-//   "PayPal",
-//   "Boleto"
-// ]
 
 export class CadastroNinja extends Component {
   state = {
@@ -134,9 +116,8 @@ export class CadastroNinja extends Component {
 
   render() {
     return (
-      <CadastroBody>
         <CardContainer>
-          <h2>Quero ser um ninja!</h2>
+          <h2>Quero ser Ninja!</h2>
           <Form
             placeholder="Título*"
             label="Serviço"
@@ -180,7 +161,6 @@ export class CadastroNinja extends Component {
             Cadastrar
           </Button>
         </CardContainer>
-      </CadastroBody>
     )
   }
 }
