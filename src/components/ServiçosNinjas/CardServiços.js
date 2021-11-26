@@ -51,7 +51,7 @@ export class CardServiços extends Component {
           <p><strong>Prazo:</strong> {converterData(this.props.job.dueDate)}</p>
           <Botoes>
 
-          <button onClick={() => this.props.irPraTelaDetalhes('detalhes')}>Ver detalhes</button>
+          <button onClick={() => this.props.irPraTelaDetalhes(this.props.job.id)}>Ver detalhes</button>
 
           <button>Adicionar ao carrinho</button>
           </Botoes>
