@@ -37,9 +37,8 @@ export class ItemDoCarrinho extends Component {
   render() {
     return (
       <CardItemCarrinho> 
-        <p>Quantidade: {this.props.quantidade}</p>
-        <p>Item: {this.props.nome}</p>
-        <p>Preço: {this.props.valor}</p>
+        <p>Item: {this.props.title}</p>
+        <p>Preço: {this.props.price}</p>
         <button onClick={() => this.props.removerCarrinho}>Remover</button>
       </CardItemCarrinho>
     )

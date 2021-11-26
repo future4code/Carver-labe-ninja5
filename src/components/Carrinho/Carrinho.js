@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ItemDoCarrinho } from './ItemDoCarrinho'
 import styled from 'styled-components'
+import Axios from 'axios'
 
 export const CardCarrinho = styled.div`
 color: #494949;
@@ -17,26 +18,46 @@ h3{
 }
 `
 
-
-
 export class Carrinho extends Component {
+  state = {
+    carrinho: [],
+    valorTotal: 0,
+  }
+
+  componentDidMount() {
+    this.produtosCarrinho()
+  }
+
+  produtosCarrinho = () => {
+    const url = "https://labeninjas.herokuapp.com/jobs"
+    const headers = {
+      headers: {
+        Authorization: "9a8a7b0c-9eba-4b46-9e82-f1ea4bf6f468"
+      }
+    }
+    // const pathVariables = {
+    //  jobs/:id, id: "efed9385-cf87-4f0e-a121-465384b3f2e4"
+    // }
+    Axios.get(url, headers)
+      .then((res) => {
+        this.setState({
+          carrinho: res.jobs,
+        })
+      })
+      .catch((err) => console.log(err.response));
+  }
+
+  // const itensCarrinho = this.state.carrinho.map((item) => { (dentro render)
   render() {
-  // const ItemDentroCarrinho = listaProdutos.map(item => {
-
-  // })
-
 
     return (
       <CardCarrinho>
-        <h3></h3> 
-        <ItemDoCarrinho/>
+        <ItemDoCarrinho key={ItemDoCarrinho.id}/>
         <p>Valor Total: R${this.props.valorTotal},00  <Botao onClick={() => alert('Compra Finalizada!')}> Finalizar Compra </Botao> <Botao onClick={() => this.props.mudarTela('serviços')}> Voltar para Lista </Botao> </p>
-        
       </CardCarrinho>
     )
   }
 }
-
 
 
 const Botao = styled.button`
