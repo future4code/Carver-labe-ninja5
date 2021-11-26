@@ -13,7 +13,9 @@ grid-template-columns: repeat(4, 1fr);
 color: #494949;
 input, select{
   margin-top: 30px;
-
+  border: 2px solid;
+  border-color: #A873E8;
+  border-radius: 20px;
   margin-left: 60px;
   width: 200px;
 
