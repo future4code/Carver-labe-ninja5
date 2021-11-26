@@ -3,27 +3,20 @@ import styled from 'styled-components'
 import logoLabeninjas from '../img/labeninjas.png'
 
 
-const EstiloBody = styled.div`
-
-background-color: #eef491;
-display: flex;
-flex-direction: column;
-align-items: center;
-height: 80vh;
-
-p{
-  display: flex;
-  justify-content: space-around;
-}
-
-div{
-
+const CardHome = styled.div`
   border: solid #acdaff;
   background-color: #acdaff;
   border-radius: 15px;
   margin-top: 5vh;
   border-width: 2vw 5vw;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  margin: 0px auto;
+p{
+  display: flex;
+  justify-content: space-around;
 }
 button{
 background-color: #A873E8;
@@ -42,19 +35,22 @@ button:hover{
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 `
+const Botao = styled.div`
+width: 300px;
+display: flex;
+justify-content: space-evenly;
+`
 
 export class HomePage extends Component {
   render() {
     return (
-      <EstiloBody>
-        <div>
+        <CardHome>
           <img src={logoLabeninjas} />
-          <p>
-            <button onClick={() => this.props.mudarTela('cadastro')}>Quero ser um ninja</button>
-            <button onClick={() => this.props.mudarTela('serviços')}>Quero encontrar um ninja</button>
-          </p>
-        </div>
-      </EstiloBody>
+          <Botao>
+            <button onClick={() => this.props.mudarTela('cadastro')}>Quero ser Ninja</button>
+            <button onClick={() => this.props.mudarTela('serviços')}>Contratar Ninja</button>
+          </Botao>
+        </CardHome>
     )
   }
 }

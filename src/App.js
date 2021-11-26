@@ -1,13 +1,21 @@
 import React from 'react'
 import { CadastroNinja } from './components/CadastroNinja'
 import { Carrinho } from './components/Carrinho/Carrinho'
-import { ItemDoCarrinho } from './components/Carrinho/ItemDoCarrinho'
 import { DetalheServiço } from './components/DetalheServiço'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { HomePage } from './components/HomePage'
 import { ListaServiços } from './components/ServiçosNinjas/ListaServiços'
+import styled from 'styled-components'
 
+const Corpo = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background-color: #eef491;
+height: 100vh;
+
+`
 export default class App extends React.Component {
 
 	state = {
@@ -64,12 +72,11 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<Corpo>
 				<Header mudarTela={this.mudarTela} />
-				{/* Para trocar a tela pelos botões de seu componente use a funcao onClick={() => this.props.mudarTela('nome da tela')}*/}
 				{this.escolherTela()}
 				<Footer />
-			</div>
+			</Corpo>
 		)
 
 	}

@@ -4,11 +4,8 @@ import { converterData } from './converterData';
 import styled from 'styled-components'
 
 
-const DetalheBody = styled.div`
-background-color: #eef491;
-height: 80vh;
-`
 const CardDetalhesDoJob = styled.div`
+font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #ACDAFF;
 border-radius: 15px;
 width: 400px;
@@ -21,6 +18,7 @@ text-align: center;
 `
 
 const Botoes = styled.div`
+font-family: Georgia, 'Times New Roman', Times, serif;
 display: flex;
 justify-content: space-around;
 width: 400px;
@@ -77,7 +75,7 @@ export class DetalheServiço extends Component {
         return <li key={pay}>{pay}</li>
     })
       return(
-        <DetalheBody>
+      
         <CardDetalhesDoJob>
           {this.state.job.title &&<h2>{this.state.job.title}</h2>}       
           {this.state.job.description &&<p>{this.state.job.description}</p>}
@@ -87,10 +85,10 @@ export class DetalheServiço extends Component {
           {pagamento}
           <Botoes>
           <button onClick={() => this.props.mudarTela('serviços')}>Voltar pra lista</button>
-          <button onClick={() => this.props.adicionarAoCarrinho(this.state.job)}>Adicionar no carrinho</button>
+          <button onClick={() => this.props.adicionarAoCarrinho(this.state.job)}>Adicionar ao carrinho</button>
           </Botoes>
         </CardDetalhesDoJob>
-        </DetalheBody>
+        
       )
     }
   }

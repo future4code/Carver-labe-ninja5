@@ -5,7 +5,6 @@ import axios from 'axios'
 
 const ServiçosBody = styled.div`
 background-color: #eef491;
-height: 100vh;
 `
 const FiltroContainer = styled.div`
 display: grid;
@@ -18,7 +17,6 @@ input, select{
   border-radius: 20px;
   margin-left: 60px;
   width: 200px;
-
 }
 `
 const CardsContainer = styled.div`
@@ -73,7 +71,6 @@ export class ListaServiços extends Component {
   render() {
 
     return (
-      
       <ServiçosBody>
         <FiltroContainer>
         <input

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {carrinho} from './Carrinho'
 
 const CardItemCarrinho = styled.div`
 border-radius: 5px;
@@ -14,8 +13,8 @@ justify-content: space-between;
 background-color: #ACDAFF;
 width: 400px;
 
-
 button{
+font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #A873E8;
 border-radius: 20px;
 border: none;
@@ -32,9 +31,6 @@ button:hover{
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 `
-// removerCarrinho = (id) => {
-// const remCarrinho = this.state.carrinho.filter(())
-// }
 
 
 export class ItemDoCarrinho extends Component {
