@@ -47,6 +47,7 @@ export class Carrinho extends Component {
       .catch((err) => console.log(err.response));
   }
 
+
   // const itensCarrinho = this.state.carrinho.map((item) => { (dentro render)
   render() {
 
