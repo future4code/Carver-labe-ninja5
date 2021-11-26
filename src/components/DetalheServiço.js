@@ -42,6 +42,7 @@ button:hover{
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }`
 
+
 export class DetalheServiço extends Component {
   state = {
     job: {},
@@ -50,8 +51,6 @@ export class DetalheServiço extends Component {
   componentDidMount(){
     this.getJobById()
   }
-
-
 
   getJobById = () => {
     const id = this.props.jobId
@@ -74,7 +73,6 @@ export class DetalheServiço extends Component {
   
 
   render() {
-    // const jobAtual = this.state.job.map((job) => {
       const pagamento = this.state.job.paymentMethods && this.state.job.paymentMethods.map((pay) => {
         return <li key={pay}>{pay}</li>
     })
@@ -89,14 +87,10 @@ export class DetalheServiço extends Component {
           {pagamento}
           <Botoes>
           <button onClick={() => this.props.mudarTela('serviços')}>Voltar pra lista</button>
-          <button onClick={() => this.props.adicionarAoCarrinho(this.props.jobId)}>Adicionar no carrinho</button>
+          <button onClick={() => this.props.adicionarAoCarrinho(this.state.job)}>Adicionar no carrinho</button>
           </Botoes>
         </CardDetalhesDoJob>
         </DetalheBody>
       )
     }
-   
-    // return (
-    //   {jobAtual}
-    // )
   }

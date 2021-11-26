@@ -132,7 +132,6 @@ export class ListaServiços extends Component {
         })
         .map((job) => {
           return <CardServiços key={job.id} job={job} irPraTelaDetalhes={this.props.irPraTelaDetalhes} adicionarAoCarrinho={this.props.adicionarAoCarrinho}/>
-
         })
       }
         </CardsContainer>
