@@ -3,17 +3,22 @@ import axios from 'axios'
 import { converterData } from './converterData';
 import styled from 'styled-components'
 
-const DetalhesDoJob = styled.div`
+
+const DetalheBody = styled.div`
+background-color: #eef491;
+height: 80vh;
+`
+const CardDetalhesDoJob = styled.div`
 background-color: #ACDAFF;
 border-radius: 15px;
 width: 400px;
 display: flex;
 flex-direction: column;
-align-items: center ;
+align-items: center;
 color: #494949;
-margin: 50px auto;
-border: solid #acdaff;
-border-width: 1vw ;`
+margin: 0px auto;
+text-align: center;
+`
 
 const Botoes = styled.div`
 display: flex;
@@ -74,7 +79,8 @@ export class DetalheServiço extends Component {
         return <li key={pay}>{pay}</li>
     })
       return(
-        <DetalhesDoJob>
+        <DetalheBody>
+        <CardDetalhesDoJob>
           {this.state.job.title &&<h2>{this.state.job.title}</h2>}       
           {this.state.job.description &&<p>{this.state.job.description}</p>}
           {this.state.job.price && <p>Valor: R${this.state.job.price.toFixed(2)}</p>}
@@ -83,9 +89,10 @@ export class DetalheServiço extends Component {
           {pagamento}
           <Botoes>
           <button onClick={() => this.props.mudarTela('serviços')}>Voltar pra lista</button>
-          <button>Adicionar no carrinho</button>
+          <button onClick={() => this.props.adicionarAoCarrinho(this.props.jobId)}>Adicionar no carrinho</button>
           </Botoes>
-        </DetalhesDoJob>
+        </CardDetalhesDoJob>
+        </DetalheBody>
       )
     }
    
