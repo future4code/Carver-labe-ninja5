@@ -27,11 +27,9 @@ margin: 10px 0;
 border-radius: 20px;
 height: 20px;
 font-size: 15px;
-font-family: Georgia, 'Times New Roman', Times, serif;
 `
 
 const Button = styled.button`
-font-family: Georgia, 'Times New Roman', Times, serif;
 width: 50%;
 justify-content: center;
 display: flex;

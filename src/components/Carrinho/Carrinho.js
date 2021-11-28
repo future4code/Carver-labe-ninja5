@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ItemDoCarrinho } from './ItemDoCarrinho'
 import styled from 'styled-components'
+import imagem from '../Carrinho/shoppingcart.png'
 
 export const CardCarrinho = styled.div`
 color: #494949;
@@ -11,10 +12,12 @@ align-items: center;
 margin: 10px;
 padding: 5px;
 border-radius: 3px;
-font-family: Georgia, 'Times New Roman', Times, serif;
 text-align: center;
 h3{
   align-self: center;
+}
+img{
+  width: 200px;
 }
 `
 
@@ -24,7 +27,6 @@ justify-content: space-around;
 margin: 0 auto;
 align-items: center;
 button{
-font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #A873E8;
 border-radius: 20px;
 border: none;
@@ -71,7 +73,10 @@ export class Carrinho extends Component {
             </Botao>
           </div>
         ) : (
+          <div>
+          <img src={imagem} fill='#A873E8'/>
           <h1>Carrinho Vazio</h1>
+          </div>
         )
         } </CardCarrinho>
     )
