@@ -14,12 +14,9 @@ flex-direction: column;
 justify-content: space-between;
 background-color: #eef491;
 height: 100vh;
-
 `
 export default class App extends React.Component {
-
 	state = {
-
 		telaAtual: '',
 		jobIdDetalhe: '',
 		carrinho: []
@@ -30,7 +27,6 @@ export default class App extends React.Component {
 	}
 
 	irPraTelaDetalhes = (jobId) => {
-
 		this.setState({ telaAtual: 'detalhes', jobIdDetalhe: jobId })
 	}
 
@@ -42,7 +38,7 @@ export default class App extends React.Component {
 
 	limparCarrinho = () => {
 		this.setState({ carrinho: [] })
-		alert("Obrigada por comprar com a gente!")
+		alert("Agradecemos por comprar com a gente!")
 	}
 
 	removerDoCarrinho = (id) => {
@@ -78,7 +74,6 @@ export default class App extends React.Component {
 				<Footer />
 			</Corpo>
 		)
-
 	}
 }
 
