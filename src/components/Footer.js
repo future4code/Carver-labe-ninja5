@@ -10,7 +10,7 @@ import instagram from '../img/instagram.png'
 const EstiloFooter = styled.div`
 
 background-color: #a873e8;
-height: 6.1vh;
+height: 6.8vh;
 position: relative;
 bottom: 0;
 display: flex;

@@ -14,7 +14,6 @@ background-color: #ACDAFF;
 width: 400px;
 
 button{
-font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #A873E8;
 border-radius: 20px;
 border: none;
@@ -37,8 +36,8 @@ export class ItemDoCarrinho extends Component {
   render() {
     return (
       <CardItemCarrinho> 
-        <p>Item: {this.props.title}</p>
-        <p>Preço: {this.props.price}</p>
+        <p>{this.props.title}</p>
+        <p>R${this.props.price},00</p>
         <button onClick={() => this.props.removerDoCarrinho(this.props.id)}>Remover</button>
       </CardItemCarrinho>
     )

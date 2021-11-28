@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 
 const CardDetalhesDoJob = styled.div`
-font-family: Georgia, 'Times New Roman', Times, serif;
 background-color: #ACDAFF;
 border-radius: 15px;
 width: 400px;
@@ -18,7 +17,6 @@ text-align: center;
 `
 
 const Botoes = styled.div`
-font-family: Georgia, 'Times New Roman', Times, serif;
 display: flex;
 justify-content: space-around;
 width: 400px;
