@@ -13,6 +13,12 @@ margin: 10px;
 padding: 5px;
 border-radius: 3px;
 text-align: center;
+
+@media screen and (max-device-width : 480px){
+  margin: 0;
+  padding: 0;
+}
+
 h3{
   align-self: center;
 }

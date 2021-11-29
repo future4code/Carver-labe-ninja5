@@ -13,6 +13,12 @@ justify-content: space-between;
 background-color: #ACDAFF;
 width: 400px;
 
+@media screen and (max-device-width : 480px){
+  width: 80vw;
+  margin: 2vw auto;
+
+}
+
 button{
 background-color: #A873E8;
 border-radius: 20px;

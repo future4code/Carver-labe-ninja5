@@ -14,6 +14,12 @@ const CardHome = styled.div`
   align-items: center;
   width: 350px;
   margin: 0px auto;
+
+  @media screen and (max-device-width : 480px) {
+    width: 80vw;
+    margin: 0px auto;
+  }
+
 p{
   display: flex;
   justify-content: space-around;

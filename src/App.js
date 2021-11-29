@@ -14,6 +14,7 @@ flex-direction: column;
 justify-content: space-between;
 background-color: #eef491;
 height: 100vh;
+width: 100vw;
 `
 export default class App extends React.Component {
 	state = {
