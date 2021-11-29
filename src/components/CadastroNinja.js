@@ -12,6 +12,10 @@ color: #A873E8;
 margin: 0 auto;
 border: solid #acdaff;
 border-width: 1vw ;
+
+@media screen and (max-device-width : 480px){
+  width: 85vw;
+}
   
 h2{
   display: flex;

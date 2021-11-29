@@ -10,6 +10,14 @@ const FiltroContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 color: #494949;
+
+@media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 input, select{
   margin-top: 30px;
   border: 2px solid;
@@ -17,12 +25,27 @@ input, select{
   border-radius: 20px;
   margin-left: 60px;
   width: 200px;
+
+@media screen and (max-device-width : 480px){
+    margin-top: 2vh;
+    width: 65vw;
+    align-self: center;
+    margin-left: 0
+  }
+  
 }
 `
 const CardsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 margin: 10px;
+
+@media screen and (max-device-width : 480px){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 `
 
 export class ListaServiços extends Component {

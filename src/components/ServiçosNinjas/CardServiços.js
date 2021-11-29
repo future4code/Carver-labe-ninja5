@@ -11,6 +11,11 @@ flex-direction: column;
 align-items: center;
 margin: 10px;
 color: #494949;
+
+@media screen and (max-device-width : 480px){
+  width: 80vw;
+
+}
 `
 const Botoes = styled.div`
 display: flex;
